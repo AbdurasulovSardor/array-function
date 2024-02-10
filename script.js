@@ -12,3 +12,33 @@ const comments = [
   { text: 'Ramen is my fav food ever', id: 123523 },
   { text: 'Nice Nice Nice!', id: 542328 }
 ];
+
+// const isAdult = people.some(person => {
+//   const currentYear = (new Date()).getFullYear()
+//   if (currentYear - person.year >= 19) {
+//     return true
+//   }
+// })
+
+const isAdult = people.some(person => (new Date()).getFullYear() - person.year >= 19)
+
+console.log(isAdult);
+
+const allAdults = people.every(person => (new Date()).getFullYear() - person.year >= 19)
+
+console.log(allAdults);
+
+const comment = comments.find(comment => comment.id === 823423)
+
+console.log(comment);
+
+const index = comments.findIndex(comment => comment.id === 823423)
+
+// comments.splice(index, 1)
+
+const newComments = [
+  ...comments.slice(0, index),
+  ...comments.slice(index + 1)
+]
+console.log(newComments);
+console.table(comments);
